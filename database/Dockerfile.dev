@@ -1,0 +1,7 @@
+FROM postgres:17
+MKDIR /app/
+WORKDIR /var/lib/postgresql/data
+COPY pg_hba.conf ./
+COPY pg_ident.conf ./
+COPY postgresql.conf ./
+WORKDIR /app/

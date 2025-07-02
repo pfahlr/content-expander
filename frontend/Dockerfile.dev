@@ -1,0 +1,15 @@
+FROM node:24-bookworm
+
+WORKDIR /app
+
+COPY ./content-expander-frontend /app/content-expander-frontend
+COPY ./entrypoint.sh ./healthcheck.sh /app/
+
+WORKDIR /app/content-expander-frontend 
+
+RUN npm install 
+
+WORKDIR /app/
+
+ENTRYPOINT ["./entrypoint.sh",""]
+

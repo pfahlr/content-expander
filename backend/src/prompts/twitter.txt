@@ -1,0 +1,11 @@
+Convert this blog post into a 10-part Twitter thread. 
+- Use a strong hook in the first tweet.
+- Each tweet should stand alone.
+- Use a conversational tone.
+- Include emojis and relevant hashtags.
+
+Title: {{ title }}
+
+Content:
+{{ content }}
+
