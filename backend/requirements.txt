@@ -3,4 +3,7 @@ uvicorn
 openai
 jinja2
 python-dotenv
-
+psycopg2-binary
+rich
+Requests
+dateutils
