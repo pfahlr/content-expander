@@ -49,7 +49,7 @@ services:
   backend-fastapi:
     build:
       context: ./backend/fastapi
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     container_name: backend-fastapi
     ports:
       - "8003:8000"  # only exposed to other containers
