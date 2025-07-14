@@ -111,6 +111,10 @@ services:
     container_name: webcontmgr-db
     restart: on-failure
     image: postgres:17
+    ports:
+      - "5433:5432"
+    expose:
+      - "5432"
     env_file:
       - ./.env
     healthcheck:
