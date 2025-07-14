@@ -95,6 +95,8 @@ services:
       - ./.env
     ports:
       - "9000:9000"
+    networks:
+      - webcontmgr-net
 
   nginx-symfony-proxy:
     container_name: nginx-symfony-proxy
@@ -106,6 +108,8 @@ services:
       - "8080:80"
     depends_on:
       - backend-symfony
+    networks:
+      - webcontmgr-net
 
   webcontmgr-db:
     container_name: webcontmgr-db
@@ -125,7 +129,7 @@ services:
       start_period: 10s
     volumes:
       - webcontmgr-db-vol:/var/lib/postgresql/data
-      - managed-volumes/webcontmgr-db-vol:/var/lib/postgresql/data:z
+      #- managed-volumes/webcontmgr-db-vol:/var/lib/postgresql/data:z
     networks:
       - webcontmgr-net
 
@@ -134,7 +138,7 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.21.0.0/24
+        - subnet: 172.25.0.0/16
 
 volumes:
   webcontmgr-db-vol:
