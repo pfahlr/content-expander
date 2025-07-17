@@ -39,10 +39,10 @@ class EmailSender(MessageSender):
       }
 
     url='https://api.smtp2go.com/v3/email/send'
-    reponse = requests.post(url,headers=post_headers,json=payload)
+    response = requests.post(url,headers=post_headers,json=payload)
+    log.info(response.ok)
+    log.info(response.content)
     return response.ok
-
-
 
 class SMSSender(MessageSender):
   def send(self, to: str, subject: str, body_plaintext: str, body_html: str) -> bool:

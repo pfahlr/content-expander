@@ -43,9 +43,9 @@ config.set_main_option('sqlalchemy.url', os.getenv('DATABASE_URL'))
 #    fileConfig(config.config_file_name)
 
 # use our logging configuration
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+#LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
-setup_logging(level=LOG_LEVEL)
+#setup_logging(level=LOG_LEVEL)
 
 # add your model's MetaData object here
 # for 'autogenerate' support

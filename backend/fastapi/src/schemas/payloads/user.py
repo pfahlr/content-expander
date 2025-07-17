@@ -1,11 +1,25 @@
 import uuid
 from fastapi_users import schemas
+from typing import Optional
+from sqlmodel import SQLModel
 
 class UserRead(schemas.BaseUser[uuid.UUID]):
-    pass
+    phone: Optional[str] = None
+    profile_image: Optional[str] = None
+    profile_banner: Optional[str] = None
+    profile_headline: Optional[str] = None
+    profile_displayname: Optional[str] = None
 
 class UserCreate(schemas.BaseUserCreate):
-    pass
+    phone: Optional[str] = None
+    profile_image: Optional[str] = None
+    profile_banner: Optional[str] = None
+    profile_headline: Optional[str] = None
+    profile_displayname: Optional[str] = None
 
 class UserUpdate(schemas.BaseUserUpdate):
-    pass
+    phone: Optional[str]  = None
+    profile_image: Optional[str] = None
+    profile_banner: Optional[str] = None
+    profile_headline: Optional[str] = None
+    profile_displayname: Optional[str] = None
