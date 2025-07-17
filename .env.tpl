@@ -14,3 +14,4 @@ OPENAI_API_KEY=sk-...
 OPENAI_MODEL=gpt-4o
 
 LOG_LEVEL="INFO"
+NAME="contentexpanse.idk"
