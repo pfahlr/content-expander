@@ -5,6 +5,7 @@ from pydantic import validator
 
 EMAIL_REGEX = re.compile(r"^[^@]+@[^@]+\.[^@]+$")
 PHONE_REGEX = re.compile(r"^\+?\d{10,15}$")
+AUTH_REGEX = re.compile(r"^#?([0-9a-fA-F]{6})$")
 
 class RegistrationRequest(SQLModel):
   contact: str = Field(..., description="Email or phone number")
@@ -26,3 +27,13 @@ class RegistrationRequest(SQLModel):
     elif PHONE_REGEX.fullmatch(contact):
       return "phone"
     raise ValueError("Could not determine contact type")
+
+class VerifyRequest(SQLModel):
+  auth_code: str = Field(min_length=6, max_length=6)
+
+  @validator("auth_code")
+  def validate_auth_code(cls, value):
+    if AUTH_REGEX.fullmatch(value) and length(value) == 6:
+      log.info("auth code is correct format:"+value)
+      return value
+    raise ValueError("Must be 6 digit auth code")

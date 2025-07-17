@@ -1,12 +1,14 @@
 from sqlmodel import SQLModel, Field, Relationship, Column
 from typing import Optional, List
-from datetime import datetime
+from datetime import datetime, timedelta
 import sqlalchemy as sa
 from sqlalchemy import text, DateTime,String
 import hashlib
 import random 
 
 class AccountStub(SQLModel, table=True):
+  __tablename__ = "accountstub"
+  __table_args__ = {"extend_existing": True}
   id: Optional[int] = Field(default=None, primary_key=True)
   contact: Optional[str] = Field(index=True)
   contact_type: Optional[str] = Field(index=True)
@@ -19,11 +21,11 @@ class AccountStub(SQLModel, table=True):
     )
   )
   expires: datetime = Field(
-    default_factory=lambda: datetime.utcnow() + timedelta(hours=5),
+    default_factory=lambda: datetime.utcnow() + timedelta(minutes=15),
     sa_column=Column(
       DateTime(timezone=True), 
       nullable=False, 
-      server_default=text("CURRENT_TIMESTAMP + INTERVAL '5 HOURS'")
+      server_default=text("CURRENT_TIMESTAMP + INTERVAL '15 MINUTES'")
   ))
 
     

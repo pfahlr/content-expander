@@ -7,6 +7,8 @@ from .join_tables import ContentJoinTag
 from .content import Content
 
 class Tag(SQLModel, table=True):
+  __tablename__ = "tag"
+  __table_args__ = {"extend_existing": True}
   id: Optional[int] = Field(default=None, primary_key=True)
   name: Optional[str] = Field(default=None, unique=True)
 

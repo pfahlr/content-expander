@@ -7,6 +7,8 @@ from .content import Content
 
 # --- Content Revision ---
 class ContentRevision(SQLModel, table=True):
+  __tablename__ = "contentrevision"
+  __table_args__ = {"extend_existing": True}
   id: Optional[int] = Field(default=None, primary_key=True)
   content_id: int = Field(foreign_key="content.id")
   cms_metadata: Optional[dict] = Field(default=None, sa_column=sa.Column(sa.JSON))

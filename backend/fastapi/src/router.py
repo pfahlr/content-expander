@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 from typing import Optional
 
 from src.schemas.payloads.registration import RegistrationRequest
-from src.models import AccountStub
+#from src.models import AccountStub
 
 router = APIRouter()
 
