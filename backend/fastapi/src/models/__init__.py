@@ -1,4 +1,4 @@
-#from .user import User
+from .user import User
 #from .account_stub import AccountStub
 from .content import Content
 from .content_revision import ContentRevision

@@ -3,12 +3,11 @@ import sys
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-print(BASE_DIR)
-#exit(0)
+#print(BASE_DIR)
 SRC_DIR = BASE_DIR / "src"
 sys.path.append(str(SRC_DIR))
 
-from utils.logging import setup_logging
+from globals import log
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from alembic import context
@@ -28,7 +27,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 's
 
 from db.base import metadata as target_metadata
 
-from models import User, Content, Tag, ContentRevision, AccountStub
+from models import User, Content, Tag, ContentRevision
 from sqlalchemy import engine_from_config, pool
 
 # this is the Alembic Config object, which provides
