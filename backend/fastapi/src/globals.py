@@ -60,5 +60,13 @@ log.info("FASTAPI_USERS_PUBLIC_KEY: "+FASTAPI_USERS_PUBLIC_KEY)
 FASTAPI_KEYPAIR_ALGO = os.getenv("FASTAPI_KEYPAIR_ALGO", "[FASTAPI_KEYPAIR_ALGO unset in /.env]")
 log.info("FASTAPI_KEYPAIR_ALGO: "+FASTAPI_KEYPAIR_ALGO)
 
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "[GOOGLE_CLIENT_ID unset in /.env]")
+log.info("GOOGLE_CLIENT_ID: "+GOOGLE_CLIENT_ID)
+
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET", "[GOOGLE_CLIENT_SECRET unset in /.env]")
+log.info("GOOGLE_CLIENT_SECRET: "+GOOGLE_CLIENT_SECRET)
+
+SESSION_SECRET_KEY = os.getenv("SESSION_SECRET_KEY", "[SESSION_SECRET_KEY unset in /.env]")
+log.info("SESSION_SECRET_KEY: "+SESSION_SECRET_KEY)
 ### ----------------------------------------------------------------------- ###
 

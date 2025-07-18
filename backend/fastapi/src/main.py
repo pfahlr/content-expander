@@ -5,14 +5,17 @@ from pathlib import Path
 
 #from utils.logging import log
 
-from globals import log
+from globals import log, SESSION_SECRET_KEY
 
 from fastapi import Depends, FastAPI
 
 from middleware.log_requests import LogRequestMiddleware
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.sessions import SessionMiddleware
 from router import router as api_router
 from api.v1 import router as v1_router
+from auth.google import router as google_auth_router
+
 
 from models import User 
 from database import create_db_and_tables
@@ -24,6 +27,10 @@ app = FastAPI(
     description="Convert blog posts into Twitter threads, YouTube scripts, and more.",
     version="0.1.0"
 )
+
+# Add this line — set a strong secret key for production
+app.add_middleware(SessionMiddleware, secret_key=SESSION_SECRET_KEY)
+
 
 # Allow frontend to call the API (adjust origin as needed)
 app.add_middleware(
@@ -70,3 +77,5 @@ app.include_router(
 @app.get("/authenticated-route")
 async def authenticated_route(user: User = Depends(current_active_user)):
     return {"message": f"Hello {user.email}!"}
+
+app.include_router(google_auth_router, prefix="/auth/google")
