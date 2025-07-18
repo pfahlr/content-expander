@@ -7,12 +7,13 @@ import ProfileForm from './components/ProfileForm';
 import ResetPasswordForm from './components/ResetPasswordForm';
 import ForgotPasswordForm from './components/ForgotPasswordForm';
 import NavBar from './components/NavBar';
+import LoginWithGoogleButton from './components/LoginWithGoogleButton';
 
 export default function App() {
   return (
     <Router>
       <NavBar />
-
+      <LoginWithGoogleButton />
       <Routes>
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
