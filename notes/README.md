@@ -14,7 +14,7 @@
 - PostgreSQL 17 database container [component](/database/) [design-notes](./database/)
 - React + Vite Base Frontend [component](./frontend/content-expander-frontend/) [design notes](./frontend/react-web/)
 - [TODO] React Native Frontend [component](./frontend/react-native/) [design notes](./frontend/react-native/)
-- [TODO] AstroJS Marketing Site [component](./marketing/) [design notes](./astrojs/)
+- [TODO] AstroJS Marketing Site [component](/marketing/) [design notes](./astrojs/)
     - Landing Page System
     - Blog System
 
