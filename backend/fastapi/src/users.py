@@ -45,7 +45,7 @@ class UserManager(UUIDIDMixin, BaseUserManager[User, uuid.UUID]):
   ):
     subject = "Welcome to "+WEBSITE_NAME+": Verification Required to Activate Account!"
     message = "Thanks for registering at "+WEBSITE_NAME+".\n\nYou'll just need to verify your account using this verification token:\n\n"+token+"\n\n"
-    message += "Follow this link to complete verification:\n\n"+WEBSITE_FRONTEND_URL+"/verify-account?token="+token+"\n\n"    
+    message += "Follow this link to complete verification:\n\n"+WEBSITE_FRONTEND_URL+"/verify-email?token="+token+"\n\n"    
     try: 
       self.message_dispatcher.send_message(contact=user.email, contact_type='email', subject=subject, body_plaintext=message, body_html=message)
       log.info(f"Verification email requested for user {user.id}. Verification token: {token}")
