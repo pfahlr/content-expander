@@ -33,7 +33,7 @@ class UserManager(UUIDIDMixin, BaseUserManager[User, uuid.UUID]):
   ):
     subject = "Password Reset Requested for account on "+WEBSITE_NAME+"\n\n"
     message = "Here is your password reset token\n\n: "+token+"\n\n"
-    messgae = "Follow this link to reset your password on the website\n\n"+WEBSITE_FRONTEND_URL+"/reset-password?token="+token+"\n\n"
+    message += "Follow this link to reset your password on the website\n\n"+WEBSITE_FRONTEND_URL+"/reset-password?token="+token+"\n\n"
     try: 
       self.message_dispatcher.send_message(contact=user.email, contact_type='email', subject=subject, body_plaintext=message, body_html=message)
       log.info(f"User {user.id} has forgot their password. Reset token: {token}")

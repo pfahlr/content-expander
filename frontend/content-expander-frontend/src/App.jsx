@@ -4,6 +4,8 @@ import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import VerifyEmail from './components/VerifyEmail';
 import ProfileForm from './components/ProfileForm';
+import ResetPasswordForm from './components/ResetPasswordForm';
+import ForgotPasswordForm from './components/ForgotPasswordForm';
 import NavBar from './components/NavBar';
 
 export default function App() {
@@ -16,6 +18,8 @@ export default function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/profile" element={<ProfileForm />} />
+        <Route path="/forgot-password" element={<ForgotPasswordForm />} />
+        <Route path="/reset-password" element={<ResetPasswordForm />} />
       </Routes>
     </Router>
   );
