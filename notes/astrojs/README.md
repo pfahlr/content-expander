@@ -3,8 +3,8 @@
 I'm looking at the following themes for landing pages:
 
 **Astro Launch - Good Design - Lots of Components for wide range of uses**
-[ ] - https://github.com/creativetimofficial/astro-launch-ui
-[ ] - https://www.creative-tim.com/astro/launch-ui/
+- [ ] https://github.com/creativetimofficial/astro-launch-ui
+- [ ] https://www.creative-tim.com/astro/launch-ui/
 
 **Astro Sassify - Good Design -Similar to Launch (Some requires Paid Version)**
 [ ] - https://github.com/larry-xue/astro-sassify-template
