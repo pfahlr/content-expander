@@ -1,24 +1,30 @@
 import os
+
 import sys
+
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-#print(BASE_DIR)
+print(BASE_DIR)
 SRC_DIR = BASE_DIR / "src"
-sys.path.append(str(SRC_DIR))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-from globals import log
+from globals import log, PROJECT_BACKEND_FASTAPI_ROOT, PROJECT_BACKEND_FASTAPI_SRC_ROOT, DATABASE_URL
+sys.path.append(str(PROJECT_BACKEND_FASTAPI_SRC_ROOT))
+
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from alembic import context
-from dotenv import load_dotenv
 from sqlmodel import SQLModel
 
+#from dotenv import load_dotenv
 # Load the .env file
-load_dotenv()
+#load_dotenv()
 
 # Add src/ to path so we can import from it
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+#sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
+sys.path.append(PROJECT_BACKEND_FASTAPI_SRC_ROOT)
 
 #print(os.getenv("DATABASE_URL"))
 #exit(0)
@@ -35,7 +41,7 @@ from sqlalchemy import engine_from_config, pool
 config = context.config
 
 # Override the DB URL from .env
-config.set_main_option('sqlalchemy.url', os.getenv('DATABASE_URL'))
+config.set_main_option('sqlalchemy.url', DATABASE_URL)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
