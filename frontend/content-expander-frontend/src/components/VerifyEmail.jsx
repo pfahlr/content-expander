@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../api/axiosInstance';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Layout from '../components/Layout';
+import { buttonClasses, inputClasses, formHeadingClasses, formContainerClasses, formClasses } from '../styles/classNames';
 
 export default function VerifyEmail() {
   const location = useLocation();

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from '../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
+import Layout from '../components/Layout';
+import { buttonClasses, inputClasses, formHeadingClasses, formContainerClasses, formClasses } from '../styles/classNames';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -31,12 +33,17 @@ export default function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <h2>Login</h2>
-      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
-      <button type="submit">Login</button>
+    <Layout>
+    <section className={formContainerClasses}>
+      <h2 className={formHeadingClasses}>Login</h2>
+      <form  className={formClasses} onSubmit={handleLogin}>
+      <input className={inputClasses} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
+      <input className={inputClasses} type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
+      <button className={buttonClasses} type="submit">Login</button>
       <p>{msg}</p>
-    </form>
+      </form>
+      <a href="/forgot-password">Forgot Password?</a>
+    </section>
+    </Layout>
   );
 }

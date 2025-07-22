@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from '../api/axiosInstance';
+import Layout from '../components/Layout';
+import { buttonClasses, inputClasses, formHeadingClasses, formContainerClasses, formClasses } from '../styles/classNames';
 
 export default function ForgotPasswordForm() {
   const [email, setEmail] = useState('');
@@ -16,11 +18,15 @@ export default function ForgotPasswordForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Forgot Password</h2>
-      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
-      <button type="submit">Send Password Reset Link</button>
+    <Layout>
+    <section className={formContainerClasses}>
+      <h2 className={formHeadingClasses}>Forgot Password</h2>
+      <form onSubmit={handleSubmit} className={formClasses}>
+      <input className={inputClasses} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
+      <button className={buttonClasses} type="submit">Send Password Reset Link</button>
       <p>{msg}</p>
-    </form>
+      </form>
+    </section>
+    </Layout>
   );
 }

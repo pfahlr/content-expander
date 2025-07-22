@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from '../api/axiosInstance';
+import Layout from '../components/Layout';
+import { buttonClasses, inputClasses, formHeadingClasses, formContainerClasses, formClasses } from '../styles/classNames';
 
 export default function RegisterForm() {
   const [email, setEmail] = useState('');
@@ -17,12 +19,16 @@ export default function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Register</h2>
-      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
-      <button type="submit">Register</button>
+    <Layout>
+      <section className={formContainerClasses}>
+      <h2 className={formHeadingClasses}>Create an Account</h2>
+      <form className={formClasses} onSubmit={handleSubmit}>
+      <input className={inputClasses}  value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
+      <input className={inputClasses}  type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
+      <button className={buttonClasses} type="submit">Register</button>
       <p>{msg}</p>
-    </form>
+      </form>
+      </section>
+    </Layout>
   );
 }

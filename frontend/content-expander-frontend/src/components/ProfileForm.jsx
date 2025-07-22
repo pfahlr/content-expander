@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../api/axiosInstance';
+import Layout from '../components/Layout';
+import { buttonClasses, inputClasses, formHeadingClasses, formContainerClasses, formClasses } from '../styles/classNames';
 
 export default function ProfileForm() {
   const [profile, setProfile] = useState(null);
@@ -24,12 +26,16 @@ export default function ProfileForm() {
   if (!profile) return <p>Loading...</p>;
 
   return (
-    <form onSubmit={handleSave}>
-      <h2>Profile</h2>
-      <input value={profile.email} onChange={(e) => setProfile({ ...profile, email: e.target.value })} />
+    <Layout>
+      <section className={formContainerClasses}>  
+      <form onSubmit={handleSave} className={formClasses}>
+      <h2 className={formHeadingClasses}>Profile</h2>
+      <input className={inputClasses} value={profile.email} onChange={(e) => setProfile({ ...profile, email: e.target.value })} />
       {/* Add more fields as needed */}
-      <button type="submit">Save</button>
+      <button className={buttonClasses} type="submit">Save</button>
       <p>{msg}</p>
-    </form>
+      </form>
+      </section>
+    </Layout>
   );
 }
