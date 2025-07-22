@@ -10,24 +10,19 @@ export default function VerifyEmail() {
   const [msg, setMsg] = useState('');
 
   useEffect(() => {
-    const token = new URLSearchParams(location.search).get('token');
-    if (token) {
-      axios.post('/auth/verify', { token })
-        .then(() => {
-          setMsg('Email verified! You can now log in.');
-          setTimeout(() => navigate('/login'), 2000);
-        })
-        .catch(() => setMsg('Verification failed.'));
-    } else {
-      setMsg('No token found.');
-    }
+    axios.post('/auth/jwt/logout')
+      .then(() => {
+        setMsg('Logout Successful!');
+        setTimeout(() => navigate('/login'), 2000);
+      })
+      .catch(() => setMsg('Logout failed.'));
   }, [location]);
 
   return (
     <Layout>
     <section className={formContainerClasses}>
-      <h2 className={formHeadingClasses}>Email Verification</h2>
-      <p>{msg}</p>
+      <h2 className={formHeadingClasses}>{msg}</h2>
+      
     </section>
     </Layout>
 
