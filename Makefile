@@ -10,7 +10,7 @@ sops-encrypt:
 
 sops-decrypt:
 	@echo "Decrypting into session"
-	sops exec-env ./.env /usr/bin/bash
+	sops exec-env ./env.enc.json /usr/bin/bash
 
 db-up:
 	@echo "📦 Brining up database container..."
