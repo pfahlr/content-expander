@@ -22,9 +22,7 @@ export default function VerifyEmail() {
     <Layout>
     <section className={formContainerClasses}>
       <h2 className={formHeadingClasses}>{msg}</h2>
-      
     </section>
     </Layout>
-
   );
 }
